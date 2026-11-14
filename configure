@@ -1,0 +1,13 @@
+#!/bin/sh
+set -eu
+upstream=${GENOGROVE_DIR:-../genogrove}
+if [ ! -f "$upstream/include/genogrove/structure/grove/grove.hpp" ]; then
+    echo "Set GENOGROVE_DIR to an upstream genogrove checkout." >&2
+    exit 1
+fi
+upstream=$(cd "$upstream" && pwd)
+cat > src/Makevars <<EOF
+CXX_STD = CXX20
+PKG_CPPFLAGS = -I"$upstream/include"
+PKG_LIBS = -lz
+EOF

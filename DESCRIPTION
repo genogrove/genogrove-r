@@ -1,0 +1,13 @@
+Package: genogrove
+Type: Package
+Title: R Bindings for genogrove
+Version: 0.0.0.9000
+Authors@R: person("Richard A.", "Schäfer", role = c("aut", "cre"),
+    email = "richard.schaefer@northwestern.edu")
+Description: Bindings to the upstream genogrove C++ library. This initial
+    development version exposes genomic coordinate groves with string payloads.
+License: GPL (>= 3)
+Encoding: UTF-8
+Imports: Rcpp
+LinkingTo: Rcpp
+SystemRequirements: C++20, genogrove headers, zlib
