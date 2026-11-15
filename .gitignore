@@ -1,0 +1,5 @@
+src/Makevars
+src/*.o
+src/*.so
+*.Rcheck/
+*.tar.gz
