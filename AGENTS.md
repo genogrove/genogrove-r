@@ -56,3 +56,23 @@ gh pr create --base main --head feat/descriptive-name --title "Describe the chan
 Use pygenogrove's shared `AGENTS.md` and workflow structure as a reference,
 adapting language-specific commands to R. Verify its implementation when its
 documentation and code disagree.
+
+
+## Shared skills and executable workflows
+
+Canonical skills live in `.agents/skills/`; `.claude/skills/` contains relative
+symlinks. CLAUDE.md imports this file. Tool-specific settings live in
+`.claude/settings.json` and `.codex/config.toml` without duplicating shared policy.
+
+- `create-pr`: branch, commit, classification and PR creation.
+- `review`: correctness, complexity, test coverage and reviewer feedback.
+- `merge-pr`: explicitly requested merges after readiness checks.
+- `changelog-update`: history-based drafts or requested changelog edits.
+- `bindings-audit`: read-only upstream/Rcpp parity and ownership audit.
+- `api-docs-update`: R exports, help and examples synchronization.
+- `release`: release preparation and checklist; no implicit publication.
+
+Adapted from pygenogrove's `.claude/commands/`: `review-pr` maps to `review`, and
+`api-stubs-update` maps to `api-docs-update`. Shared files are the source of truth.
+Use `scripts/test.sh` for installation in a temporary R library and binding tests.
+Use `scripts/release-check.sh` for source build/check and retained temporary reports.
